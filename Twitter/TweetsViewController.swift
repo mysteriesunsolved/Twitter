@@ -18,7 +18,8 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.delegate = self
-        
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 350
         
 
         // Do any additional setup after loading the view.
@@ -51,6 +52,7 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         
         let tweet = tweets![indexPath.row]
         cell.tweet = tweet
+        cell.tweetTextLabel.sizeToFit()
         
         return cell
     }
