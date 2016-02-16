@@ -89,7 +89,7 @@ class TwitterClient: BDBOAuth1SessionManager {
             print("RetweetID: \(id)")
             completion(error: nil)
             }, failure: { (operation: NSURLSessionDataTask?, error: NSError!) -> Void in
-                print("Sigh fail")
+                print("RT failure")
                 completion(error: error)
             }
         )

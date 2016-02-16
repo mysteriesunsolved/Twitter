@@ -47,44 +47,55 @@ class TweetCell: UITableViewCell {
             retweetLabel.text = String(tweet.retweetCount!)
             favouriteLabel.text = String(tweet.favouriteCount!)
             
+            retweetButton.setImage(UIImage(named: "retweet-action-on-pressed"), forState: .Highlighted)
+            favouriteButton.setImage(UIImage(named: "like-action-on-pressed"), forState: .Highlighted)
+
+            
            
         }
         
     }
     
-    func calculateTimeStamp(timeTweetPosted: NSTimeInterval) -> String {
+    func calculateTimeStamp(timeTweetPostedAgo: NSTimeInterval) -> String {
         
-        var rawTime = Int(timeTweetPosted)
+        var rawTime = Int(timeTweetPostedAgo)
         var time: Int = 0
-        var timeChar = String()
+        var timeChar = ""
         
         rawTime = rawTime * (-1)
         
-        if (rawTime <= 60) { //sec
+        if (rawTime <= 60) {
             time = rawTime
             timeChar = "s"
-        } else if ((rawTime/60) <= 60) { // min
+        } else if ((rawTime/60) <= 60) {
             time = rawTime/60
             timeChar = "m"
-        } else if (rawTime/60/60 <= 24) { // hr
+        } else if (rawTime/60/60 <= 24) {
             time = rawTime/60/60
             timeChar = "h"
-        } else if (rawTime/60/60/24 <= 365) { // days
+        } else if (rawTime/60/60/24 <= 365) {
             time = rawTime/60/60/24
             timeChar = "d"
-        } else if (rawTime/(3153600) <= 1) { // Years
+        } else if (rawTime/(3153600) <= 1) {
+            
             time = rawTime/60/60/24/365
             timeChar = "y"
         }
         
         return "\(time)\(timeChar)"
     }
+        
+    
+        
+       
+    
     
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        tweetTextLabel.sizeToFit()
+        
+        
     }
 
     override func setSelected(selected: Bool, animated: Bool) {
@@ -97,9 +108,8 @@ class TweetCell: UITableViewCell {
         
         TwitterClient.sharedInstance.retweet(Int(tweetID), params: nil, completion: {(error) -> () in
             
-            
-            
-                self.retweetLabel.text = String(self.tweet!.retweetCount! + 1)
+            self.retweetLabel.text = String(self.tweet!.retweetCount! + 1)
+            self.retweetButton.setImage(UIImage(named: "retweet-action-on"), forState: .Normal)
            
         })
         
@@ -110,12 +120,15 @@ class TweetCell: UITableViewCell {
         TwitterClient.sharedInstance.favTweet(Int(tweetID), params: nil, completion: {(error) -> () in
            
             
-            
                 self.favouriteLabel.text = String(self.tweet.favouriteCount! + 1)
+                self.favouriteButton.setImage(UIImage(named: "like-action-on"), forState: .Normal)
+
             
         })
         
     }
+    
+    
 
 
 }
