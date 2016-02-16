@@ -26,13 +26,14 @@ The following **additional** features are implemented:
 
 Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
 
-1. 
-2. 
+1. Autolayout and more on Api calls like untweeting etc
+2. NSDates and conversions
 
 ## Video Walkthrough 
 
 Here's a walkthrough of implemented user stories:
-*Facing licecap issues*
+
+**Facing licecap issues**
 
 <img src='' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
