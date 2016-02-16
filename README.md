@@ -35,7 +35,7 @@ Here's a walkthrough of implemented user stories:
 
 **Facing licecap issues**
 
-<img src='' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='http://i.imgur.com/qCQSa4f.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
